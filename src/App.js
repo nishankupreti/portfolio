@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Moon, Sun, Volume2, VolumeX, Github, Linkedin, Mail, Download, ExternalLink, Briefcase, GraduationCap, Award, Terminal, Phone, Zap, Sparkles, Camera, Menu, X } from 'lucide-react';
+import { Moon, Sun, Volume2, VolumeX, Github, Linkedin, Mail, Download, ExternalLink, GraduationCap, Award, Terminal, Phone, Sparkles, Camera, Menu, X } from 'lucide-react';
+const roles = [
+  'Full-Stack Developer',
+  'AI/ML Enthusiast',
+  'Discord Bot Creator',
+  'Problem Solver',
+  'Tech Innovator'
+];
 
 /* 
 ==============================================
@@ -44,23 +51,35 @@ export default function Portfolio() {
   const lofiAudioRef = useRef(null);
   const magicAudioRef = useRef(null);
   
-  const roles = ['Full-Stack Developer', 'AI/ML Enthusiast', 'Discord Bot Creator', 'Problem Solver', 'Tech Innovator'];
-  const [roleIndex, setRoleIndex] = useState(0);
+const [roleIndex, setRoleIndex] = useState(0);
 
-  // ============= LOADING SCREEN EFFECT =============
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setLoadingProgress(prev => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setTimeout(() => setLoading(false), 500);
-          return 100;
-        }
-        return prev + 2;
-      });
-    }, 30);
-    return () => clearInterval(interval);
-  }, []);
+// ============= LOADING SCREEN EFFECT =============
+
+useEffect(() => {
+
+  const interval = setInterval(() => {
+
+    setLoadingProgress(prev => {
+
+      if (prev >= 100) {
+
+        clearInterval(interval);
+
+        setTimeout(() => setLoading(false), 500);
+
+        return 100;
+
+      }
+
+      return prev + 2;
+
+    });
+
+  }, 30);
+
+  return () => clearInterval(interval);
+
+}, []);
 
   // ============= TYPING ANIMATION =============
   useEffect(() => {
